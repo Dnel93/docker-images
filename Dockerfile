@@ -11,10 +11,12 @@ RUN apt-get update \
     apache2 \
  && rm -rf /var/lib/apt/lists/*
 
-# ADD VS Copy - Add will take any file on a url and add it into the path speecified
-COPY startbootstrap-freelancer-master . /var/www/html
+ WORKDIR /var/www/html
 
-RUN echo "$(whoami)" > /var/www/html/user1.html
+# ADD VS Copy - Add will take any file on a url and add it into the path speecified
+COPY startbootstrap-freelancer-master .
+
+RUN echo "$(whoami)" > user1.html
 RUN useradd ricardo
 
 # USER - Choose an user from system for a particular task
@@ -25,6 +27,8 @@ RUN echo "$(whoami)" > /tmp/user2.html
 VOLUME /var/www/html
 
 USER root
-RUN cp /tmp/user2.html /var/www/html/user2.html
+RUN cp /tmp/user2.html user2.html
+
+COPY run.sh /run.sh
 # Launch Apache
-CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
+CMD sh /run.sh
