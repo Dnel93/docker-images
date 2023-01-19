@@ -27,3 +27,8 @@ Here we're using the `cp` command to copy a local file into a directory on the c
 docker cp apache:/var/log/dpkg.log .
 ```
 This is something similar to previous command but viceversa, here we're indicating the file path from the container and making a copy of it in our local path, for this particular case the location terminal at the moment it's being used
+
+# Commiting a container
+Never do that
+
+:)
