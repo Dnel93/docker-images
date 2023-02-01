@@ -1,9 +1,9 @@
 version: '3'
 services:
-  db:
-    image: mysql:5.7
-    container_name: mysql
+  web:
+    container_name: nginx2
     ports:
-      - "3306:3306"
-    environment: 
-      - "MYSQL_ROOT_PASSWORD=12345678"
+      - "8081:80"
+    volumes: 
+      - "/Users/nikedanz/codebase/docker/docker-images/docker-compose/html:/usr/share/nginx/html"
+    image: nginx
