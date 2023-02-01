@@ -22,3 +22,6 @@ services: <tree of attributes to be included>
 volumes:
 network:
 ```
+
+# Docker Compose with different fileName
+`docker-compose -f <filename>.yml up -d`
