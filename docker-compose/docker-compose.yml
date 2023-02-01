@@ -1,9 +1,18 @@
 version: '3'
 services:
   web:
-    container_name: nginx2
+    container_name: apache1
     ports:
       - "8081:80"
-    volumes: 
-      - "/Users/nikedanz/codebase/docker/docker-images/docker-compose/html:/usr/share/nginx/html"
-    image: nginx
+    image: httpd
+    networks:
+      - net-test
+  web2:
+    container_name: apache2
+    ports:
+      - "8082:80"
+    image: httpd
+    networks:
+      - net-test
+networks:
+  net-test:
